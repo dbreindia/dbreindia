@@ -9,11 +9,11 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'php-mailer/src/Exception.php';
 require 'php-mailer/src/PHPMailer.php';
-//require 'php-mailer/src/SMTP.php';
+require 'php-mailer/src/SMTP.php';
 
 
 // Enter your email address. If you need multiple email recipes simply add a comma: email@domain.com, email2@domain.com
-$to = "aarti@abreindia.com";
+$to = "eadleritsolutions@gmail.com";
 
 // Add your reCaptcha Secret key if you wish to activate google reCaptcha security
 $recaptcha_secret_key = ''; 
@@ -54,14 +54,14 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
         }
             
         //If you don't receive the email, enable and configure these parameters below: 
-        //$mail->SMTPOptions = array('ssl' => array('verify_peer' => false,'verify_peer_name' => false,'allow_self_signed' => true));
-        //$mail->IsSMTP();
-        //$mail->Host = 'mail.yourserver.com';                  // Specify main and backup SMTP servers, example: smtp1.example.com;smtp2.example.com
-        //$mail->SMTPAuth = true;
-        //$mail->Port = 587;                                    // TCP port to connect to  587 or 465
-        //$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-        //$mail->Username = 'SMTP username';                    // SMTP username
-        //$mail->Password = 'SMTP password';                    // SMTP password
+        $mail->SMTPOptions = array('ssl' => array('verify_peer' => false,'verify_peer_name' => false,'allow_self_signed' => true));
+        $mail->IsSMTP();
+        $mail->Host = 'mail.gmail.com';                  // Specify main and backup SMTP servers, example: smtp1.example.com;smtp2.example.com
+        $mail->SMTPAuth = true;
+        $mail->Port = 587;                                    // TCP port to connect to  587 or 465
+        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Username = 'eadleritsolutions@gmail.com';                    // SMTP username
+        $mail->Password = 'Eadler@123';                    // SMTP password
 
         $mail = new PHPMailer;
         $mail->IsHTML(true);                                    
