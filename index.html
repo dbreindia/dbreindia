@@ -81,7 +81,7 @@
         </header>
         <!-- end: Header -->
         <!-- Inspiro Slider -->
-        <div id="slider" class="inspiro-slider slider-fullscreen dots-creative" data-height-xs="550">
+        <div id="slider" class="inspiro-slider slider-fullscreen dots-creative" data-height-xs="650">
             <!-- Slide 1 -->
             <div class="slide kenburns" style="background-image:url('images/slide2.jpg');">
                 <div class="bg-overlay"></div>
@@ -1027,21 +1027,21 @@
                             <form class=" form-validate widget-contact-form " action="include/contact-form.php" role="form" method="POST">
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
                                     </div>
-                                    <input type="text" aria-required="true" required name="widget-contact-form-name" class="form-control required name" placeholder="Enter your Name">
+                                    <input type="text" id="contact-name" aria-required="true" required name="widget-contact-form-name" class="form-control required name" placeholder="Enter your Name">
                                 </div>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basicaddon1"><i class="fa fa-envelope"></i></span>
+                                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                                     </div>
-                                    <input type="email" aria-required="true" required name="widget-contact-form-email" class="form-control required email" placeholder="Enter your Email">
+                                    <input type="email" id="contact-email" aria-required="true" required name="widget-contact-form-email" class="form-control required email" placeholder="Enter your Email">
                                 </div>
                                 <div class="form-group mb-2">
-                                    <textarea type="text" name="widget-contact-form-message" rows="5" class="form-control required" placeholder="Enter your Message"></textarea>
+                                    <textarea type="text" id="contact-message" name="widget-contact-form-message" rows="5" class="form-control required" placeholder="Enter your Message"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn" type="submit" id="form-submit"><i class="fa fa-paper-plane"></i>&nbsp;Send message</button>
+                                    <button onclick="postContactDetails('all');" class="btn" type="submit" id="form-submit"><i class="fa fa-paper-plane"></i>&nbsp;Send message</button>
                                 </div>
                             </form>
                         </div>
@@ -1085,9 +1085,35 @@
     <script type="text/javascript" src="plugins/gmap3/gmap3.min.js"></script>
     <script type="text/javascript" src="plugins/gmap3/map-styles.js"></script>
 
-    <!--Pageloader plugin files-->
-    <script src="plugins/pageloader/pageloader.js"></script>
-    <script src="plugins/pageloader/pageloader.init.js"></script>
+
+    <script>
+        function postContactDetails(type) {
+            isButtonSubmitValidation = true;
+            if (validation(isButtonSubmitValidation, type)) {
+                showPleaseWait();
+                $.ajax({
+                    type: "POST",
+                    url: "sitService.asmx/PostContactDetails",
+                    data: "{'name':'" + $("#contact-name").val() + "','email': '" + $("#contact-email").val() + "', 'message':'" + $("#contact-message").val() + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        hidePleaseWait();
+                        clearControl();
+                        $("#divSuccess").attr("style", "display:block;font-size:16px;background-color:transparent;border:none");
+                        setTimeout(function () {
+                            $("#divSuccess").attr("style", "display:none;font-size:16px;background-color:transparent;border:none");
+                        }, 5000);
+                    },
+                    failure: function (msg) {
+                        alert(msg);
+                    }
+                });
+            }
+        }
+    </script>
+
+
 
 
 </body>
