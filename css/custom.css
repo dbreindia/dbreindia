@@ -14,3 +14,11 @@ Orange-#f35740,Yellow-#fcbe37,Blue-#5da6db,Light-Blue--#95cff5
 /*    border: 3px solid #fcbe37  !important;*/
 /*}*/
 
+
+@media (max-width:786px){
+    .offset-1
+    {
+        margin-left:0% !important;
+    }
+}
+

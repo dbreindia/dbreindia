@@ -59,7 +59,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
         $mail->Host = 'mail.gmail.com';                  // Specify main and backup SMTP servers, example: smtp1.example.com;smtp2.example.com
         $mail->SMTPAuth = true;
         $mail->Port = 587;                                    // TCP port to connect to  587 or 465
-        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Username = 'eadleritsolutions@gmail.com';                    // SMTP username
         $mail->Password = 'Eadler@123';                    // SMTP password
 
