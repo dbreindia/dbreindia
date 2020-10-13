@@ -56,7 +56,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
         //If you don't receive the email, enable and configure these parameters below: 
         $mail->SMTPOptions = array('ssl' => array('verify_peer' => false,'verify_peer_name' => false,'allow_self_signed' => true));
         $mail->IsSMTP();
-        $mail->Host = 'mail.gmail.com';                  // Specify main and backup SMTP servers, example: smtp1.example.com;smtp2.example.com
+        $mail->Host = 'smtp.gmail.com';                  // Specify main and backup SMTP servers, example: smtp1.example.com;smtp2.example.com
         $mail->SMTPAuth = true;
         $mail->Port = 587;                                    // TCP port to connect to  587 or 465
         $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
