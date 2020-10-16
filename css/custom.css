@@ -21,4 +21,6 @@ Orange-#f35740,Yellow-#fcbe37,Blue-#5da6db,Light-Blue--#95cff5
         margin-left:0% !important;
     }
 }
-
+.embed-responsive-16by9::before {
+    padding-top: 15%;
+}

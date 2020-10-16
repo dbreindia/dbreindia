@@ -125,14 +125,23 @@
         <!--end: Inspiro Slider -->
 
         <!-- About us -->
-        <section id="section2">
+        <section id="section2" class="background-grey">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 col-md-12">
                         <h4>About DBRE India</h4>
-                        <h2>Set your goals high, and don't stop till you get there.</h2>
-                        <p class="lead">Nulla varius consequat magna, id molestie ipsum volutpat quis. A true story, that never been told!. Fusce id mi diam, non ornare. Fusce id mi diam, non ornare orci. Pellentesque ipsum erat, facilisis ut venenatis eu.</p>
-                        <a href="#section3" class="btn btn-dark btn-outline btn-rounded scroll-to">Our Services</a>
+                        <h3> Successes aren't made by a single person, but a team
+                        </h3>
+                        <p class="lead">We specialize in licensing assistance for food & beverages businesses.
+                            Our team is utterly dynamic and consists of result orientated professionals, who are committed to delivering effective solutions following all legal norms.
+                            With our expertise, we help you combat all hurdles & assure you quality & prompt service.
+                            For us, the satisfaction of our clients is of uttermost importance..</p>
+                        <object>
+                            <!--    <p>Your browser does not support PDFs.-->
+                            <a class="btn btn-dark btn-outline btn-rounded scroll-to" href="images/DBRE-Profile.pdf" target="_blank">More Info</a>
+                        </object>
+
+<!--                        <a href="#section3" class="btn btn-dark btn-outline btn-rounded scroll-to">Our Services</a>-->
                     </div>
 
                     <div class="col-lg-6 offset-1 m-t-40">
@@ -1024,7 +1033,7 @@
                             <!-- end: Footer widget area 2 -->
                         </div>
                         <div class="col-lg-4">
-                            <form class=" form-validate widget-contact-form " role="form">
+                            <form class="form-validate widget-contact-form " role="form">
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-user"></i></span>
@@ -1084,34 +1093,6 @@
     <script type='text/javascript' src='//maps.googleapis.com/maps/api/js?key=AIzaSyAMGGBAAUlKs9aWb5hViVerOIA67FqbV1o'></script>
     <script type="text/javascript" src="plugins/gmap3/gmap3.min.js"></script>
     <script type="text/javascript" src="plugins/gmap3/map-styles.js"></script>
-
-
-    <script>
-        function postContactDetails(type) {
-            isButtonSubmitValidation = true;
-            if (validation(isButtonSubmitValidation, type)) {
-                showPleaseWait();
-                $.ajax({
-                    type: "POST",
-                    url: "sitService.asmx/PostContactDetails",
-                    data: "{'name':'" + $("#contact-name").val() + "','email': '" + $("#contact-email").val() + "', 'message':'" + $("#contact-message").val() + "'}",
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (response) {
-                        hidePleaseWait();
-                        clearControl();
-                        $("#divSuccess").attr("style", "display:block;font-size:16px;background-color:transparent;border:none");
-                        setTimeout(function () {
-                            $("#divSuccess").attr("style", "display:none;font-size:16px;background-color:transparent;border:none");
-                        }, 5000);
-                    },
-                    failure: function (msg) {
-                        alert(msg);
-                    }
-                });
-            }
-        }
-    </script>
 
 
 
